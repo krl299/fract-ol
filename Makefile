@@ -1,4 +1,4 @@
-SRCS		=	main.c
+SRCS		=	fractol.c
 
 OBJS		=	${SRCS:.c=.o}
 
@@ -6,9 +6,9 @@ LIBMLX		=	./MLX42
 
 LIBFT		=	./libft
 
-HEADERS		=	-I ${LIBMLX}/include/MLX42 -I ${LIBFT}
+HEADERS		=	-I ${LIBMLX}/include/MLX42 -I ${LIBFT} 
 
-LIBS		=	${LIBMLX}/libmlx42.a ${LIBFT}/libft.a
+LIBS		=	${LIBMLX}/libmlx42.a	${LIBFT}/libft.a
 
 GCC = gcc -Wall -Werror -Wextra
 
@@ -19,22 +19,23 @@ RM = rm -rf
 .c.o:
 	${GCC} -c $< ${HEADERS} -o ${<:.c=.o}
 
-all: $(LIBFT) $(NAME)
+all:	lib	$(NAME)
 
-$(LIBFT):
-	git submodule update --init
+lib:
+	make -C MLX42
 	make -C libft extra
-	make -C libft graphics
 
 $(NAME): ${OBJS}
-	${GCC} ${OBJS} ${LIBS} -lglfw -L "/Users/cmoran-l/.bre/opt/glfw/lib" ${HEADERS} -o ${NAME}
+	${GCC} ${OBJS} ${LIBS} -lglfw -L "/Users/cmoran-l/.brew/opt/glfw/lib/" ${HEADERS} -o ${NAME}
 
 clean:
+	${RM} ${OBJS}
+	make -C MLX42 fclean
 	make -C libft fclean
-	${RM} ${LIBFT} ${NAME}
 
 fclean: clean
-	
+	${RM} ${NAME}
+
 re: fclean all
 
 .PHONY: all clean fclean re NAME LIBFT
