@@ -1,4 +1,4 @@
-SRCS		=	fractol.c
+SRCS		=	fractol.c	help_text.c	utils.c	parsers.c	initializers.c
 
 OBJS		=	${SRCS:.c=.o}
 
@@ -17,24 +17,25 @@ NAME = fractol
 RM = rm -rf
 
 .c.o:
-	${GCC} -c $< ${HEADERS} -o ${<:.c=.o}
+	@${GCC} -c $< ${HEADERS} -o ${<:.c=.o}
 
 all:	lib	$(NAME)
 
 lib:
-	make -C MLX42
-	make -C libft extra
+	@git submodule update --init
+	@make -C libft extra
+	@make -C MLX42
 
 $(NAME): ${OBJS}
-	${GCC} ${OBJS} ${LIBS} -lglfw -L "/Users/cmoran-l/.brew/opt/glfw/lib/" ${HEADERS} -o ${NAME}
+	@${GCC} ${OBJS} ${LIBS} -lglfw -L "/Users/cmoran-l/.brew/opt/glfw/lib/" ${HEADERS} -o ${NAME}
 
 clean:
-	${RM} ${OBJS}
-	make -C MLX42 fclean
-	make -C libft fclean
+	@${RM} ${OBJS}
+	@make -C MLX42 fclean
+	@make -C libft fclean
 
 fclean: clean
-	${RM} ${NAME}
+	@${RM} ${NAME}
 
 re: fclean all
 
