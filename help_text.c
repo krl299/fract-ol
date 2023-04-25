@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 19:28:38 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/04/21 09:58:55 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/04/24 10:25:34 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	ft_color_options(void)
 	ft_printf("\tGreen:\t00FF00\tYellow:\tFFFF00\n");
 }
 
-void	ft_help_txt(void)
+void	ft_help_txt(t_fractol *f)
 {
 	ft_printf("\n+------------------------------------------------+\n");
 	ft_printf("\n|                  FRACT'OL                      |\n");
@@ -40,5 +40,5 @@ void	ft_help_txt(void)
 	ft_color_options();
 	ft_printf("\nExample ==> ./fractol <fractal> <keys> <color>");
 	ft_printf("\n+------------------------------------------------+\n");
-	exit(2);
+	ft_exit(f);
 }

@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 12:18:10 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/04/21 10:41:51 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/04/24 10:40:45 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,25 @@ int	ft_ishex(int c)
 		return (c);
 	else
 		return (0);
+}
+
+//
+void	ft_exit(t_fractol *f)
+{
+	if (!f)
+		exit(2);
+/*	if (f->palette)
+		free(f->palette);
+	if (f->img)
+		mlx_destroy_image(f->mlx, f->img);
+	if (f->win && f->mlx)
+		mlx_destroy_window(f->mlx, f->win);
+	if (f->mlx)
+	{
+		mlx_loop_end(f->mlx);
+		mlx_destroy_display(f->mlx);
+		free(f->mlx);
+	}
+	*/
+	exit(2);
 }

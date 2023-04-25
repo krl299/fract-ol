@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:22:46 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/04/21 11:57:10 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:54:16 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,20 +63,18 @@ typedef struct	s_fractol
 	double	key_real;
 	double	key_imaginary;
 	void	*mlx;
-	void	*win;
 	void	*img;
-	void	*buff;
 }	t_fractol;
 
-void	ft_help_txt();
+void	ft_help_txt(t_fractol *f);
 void	ft_init_fractol(t_fractol *f);
-//vo t_fd	ft_check_args(t_fr, t_fractol *f, char **argv);
-void	ft_set_color(t_fractol *f, int argc, char **argv);
+//void	ft_set_color(t_fractol *f, int argc, char **argv);
 void	ft_start(t_fractol *f);
-void	ft_render(t_fractol *f);
+void	ft_hook(void *param);
 void	ft_print_controls();
 
 // UTILS
 double	ft_atod(char *str);
 int		ft_ishex(int c);
+void	ft_exit(t_fractol *f);
 #endif

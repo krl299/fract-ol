@@ -6,14 +6,14 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 10:02:38 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/04/21 10:45:43 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/04/24 10:41:51 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 //
-static int	ft_set_hexcolor(/*t_fractol *f,*/ char *color)
+static int	ft_set_hexcolor(t_fractol *f, char *color)
 {
 	int	i;
 	int	nb;
@@ -31,7 +31,7 @@ static int	ft_set_hexcolor(/*t_fractol *f,*/ char *color)
 	if (i == 6 && !color[i])
 		return (nb);
 	else
-		ft_help_txt();
+		ft_help_txt(f);
 	return (-1);
 }
 
@@ -40,9 +40,9 @@ static int	ft_set_hexcolor(/*t_fractol *f,*/ char *color)
 void	ft_set_color(t_fractol *f, int argc, char **argv)
 {
 	if (f->fractal == JULIA && argc == 5)
-		f->color = ft_set_hexcolor(argv[4]);
+		f->color = ft_set_hexcolor(f, argv[4]);
 	else if (f->fractal != JULIA && argc == 3)
-		f->color = ft_set_hexcolor(argv[3]);
+		f->color = ft_set_hexcolor(f, argv[3]);
 	if (argc == 2 || (f->fractal == JULIA && argc == 4))
 		f->color = 0x9966FF;
 }
