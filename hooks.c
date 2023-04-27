@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:50:54 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/04/25 16:01:04 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/04/26 10:52:51 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_hook(void *param)
 {
-	const mlx_t *mlx = param;
-	printf("WIDTH: %d | HEIGHT: %d\n", mlx->width, mlx->height);
+	(void)param;
 }

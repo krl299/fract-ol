@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:22:46 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/04/25 15:54:16 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/04/27 18:43:31 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,13 @@
 // DIMENSIONS
 # define WIDTH 900
 # define HEIGHT 900
+# define W_CTRL 500
+# define W_SHOW 250
 # define MAX_ITERATIONS 60
 //FRACTALS
 # define JULIA 1
 # define MANDELBROT 2
 # define MANDELBOX 3
-//KEYS
-# define EVENT_CLOSE_BTN 17
-# define KEY_ESC 65307
-# define KEY_W 119
-# define KEY_A 97
-# define KEY_S 115
-# define KEY_D 100
-# define KEY_UP 65362
-# define KEY_DOWN 65364
-# define KEY_LEFT 65361
-# define KEY_RIGHT 65363
-# define KEY_PLUS 61
-# define KEY_MINUS 45
-# define KEY_SPACE 32
-# define KEY_ONE 49
-# define KEY_TWO 50
-# define KEY_THREE 51
-# define KEY_FOUR 52
-# define KEY_FIVE 53
-# define MOUSE_WHEEL_UP 4
-# define MOUSE_WHEEL_DOWN 5
-# define MOUSE_WHEEL_BTN 3
-# define MOUSE_BTN 1
-# define MOUSE_BTN_2 3
-# define KEY_K 107
 
 typedef struct	s_fractol
 {
@@ -62,19 +39,40 @@ typedef struct	s_fractol
 	double	max_imaginary;
 	double	key_real;
 	double	key_imaginary;
-	void	*mlx;
-	void	*img;
+	double	z_r;
+	double	z_i;
+	double	c_r;
+	double	c_i;
+	mlx_t	*mlx;
+	mlx_image_t	*img;
+	mlx_image_t	*ctrl;
+	mlx_image_t	*show;
+	int		screen_x;
+	int		screen_y;
 }	t_fractol;
 
 void	ft_help_txt(t_fractol *f);
 void	ft_init_fractol(t_fractol *f);
 //void	ft_set_color(t_fractol *f, int argc, char **argv);
 void	ft_start(t_fractol *f);
+void	ft_render(t_fractol *f);
+void	ft_color(t_fractol *f);
 void	ft_hook(void *param);
-void	ft_print_controls();
+void	ft_key_hook(mlx_key_data_t keydata, void *param);
+void	ft_scroll_hook(double xdelta, double ydelta, void *param);
+void	ft_print_controls(t_fractol *f);
+
+//Fractals
+void	ft_julia(t_fractol *f);
+void	ft_mandelbrot(t_fractol *f);
+void	ft_mandelbox(t_fractol *f);
+
+//MATHS
+void	ft_calc_complex_plane(t_fractol *f);
 
 // UTILS
 double	ft_atod(char *str);
 int		ft_ishex(int c);
 void	ft_exit(t_fractol *f);
+double	ft_module(double r, double i);
 #endif

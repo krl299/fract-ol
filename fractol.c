@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:2:51 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/04/25 15:59:24 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/04/26 12:58:50 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ static void	ft_check_args(t_fractol *f, int argc, char **argv)
 	else if (f->fractal == JULIA && argc > 5)
 		ft_help_txt(f);
 	ft_set_key_values(f, argc, argv);
-//	ft_set_color(f, argc, argv);
 }
 
 // 
