@@ -39,4 +39,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re NAME LIBFT
+.PHONY: all clean fclean re NAME LIBFT lib

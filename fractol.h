@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:22:46 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/04/27 18:43:31 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/01 16:19:21 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	ft_mandelbox(t_fractol *f);
 
 //MATHS
 void	ft_calc_complex_plane(t_fractol *f);
+void	ft_calc_complex_plane_julia(t_fractol *f);
 
 // UTILS
 double	ft_atod(char *str);

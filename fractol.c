@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:2:51 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/04/26 12:58:50 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/01 13:26:04 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,18 @@
 // Set fractal to deploy
 static void	ft_set_fractal(t_fractol *f, char **argv)
 {
-	if ((argv[1][0] == 'J' || argv[1][0] == 'j' || argv[1][0] == '1') && argv[1][1] == '\0')
+	if ((argv[1][0] == 'J' || argv[1][0] == 'j' || argv[1][0] == '1') \
+			&& argv[1][1] == '\0')
 	{
 		f->fractal = JULIA;
 	}
-	else if ((argv[1][0] == 'M' || argv[1][0] == 'm' || argv[1][0] == '2') && argv[1][1] == '\0')
+	else if ((argv[1][0] == 'M' || argv[1][0] == 'm' || argv[1][0] == '2') \
+			&& argv[1][1] == '\0')
 	{
 		f->fractal = MANDELBROT;
 	}
-	else if ((argv[1][0] == 'X' || argv[1][0] == 'x' || argv[1][0] == '3') && argv[1][1] == '\0')
+	else if ((argv[1][0] == 'X' || argv[1][0] == 'x' || argv[1][0] == '3') \
+			&& argv[1][1] == '\0')
 	{
 		f->fractal = MANDELBOX;
 	}
@@ -54,22 +57,52 @@ void	ft_set_key_values(t_fractol *f, int argc, char **argv)
 		ft_help_txt(f);
 }
 
+//
+static void	ft_set_complex_layout(t_fractol *f)
+{
+	if (f->fractal == JULIA)
+	{
+		f->min_real = -2.0;
+		f->max_real = 2.0;
+		f->min_imaginary = -2.0;
+		f->max_imaginary = f->min_imaginary + (f->max_real - f->min_real) \
+							* HEIGHT / WIDTH;
+	}
+	else if (f->fractal == MANDELBOX)
+	{
+		f->min_real = -4.0;
+		f->max_real = 4.0;
+		f->min_imaginary = -4.0;
+		f->max_imaginary = f->min_imaginary + (f->max_real - f->min_real) \
+							* HEIGHT / WIDTH;
+	}
+	else
+	{
+		f->min_real = -2.0;
+		f->max_real = 1.0;
+		f->max_imaginary = -1.5;
+		f->min_imaginary = f->max_imaginary + (f->max_real - f->min_real) \
+							* HEIGHT / WIDTH;
+	}
+}
+
 // Check arguments and set fractal requirements
 static void	ft_check_args(t_fractol *f, int argc, char **argv)
 {
-	ft_set_fractal(f,argv);
+	ft_set_fractal(f, argv);
 	if (f->fractal != JULIA && argc > 3)
 		ft_help_txt(f);
 	else if (f->fractal == JULIA && argc > 5)
 		ft_help_txt(f);
 	ft_set_key_values(f, argc, argv);
+	ft_set_complex_layout(f);
 }
 
 // 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_fractol	f;
-	
+
 	if (argc < 2)
 		ft_help_txt(&f);
 	ft_init_fractol(&f);

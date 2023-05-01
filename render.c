@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:10:15 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/04/27 18:51:20 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/01 16:33:17 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,40 @@ void	ft_render(t_fractol *f)
 //
 void	ft_julia(t_fractol *f)
 {
-	(void)f; 
+	int		iterations;
+	double	tmp_r;
+
+	f->screen_y = 0;
+	iterations = 0;
+	while (f->screen_y < HEIGHT)
+	{
+		f->screen_x = 0;
+		while (f->screen_x < WIDTH)
+		{
+			ft_calc_complex_plane_julia(f);
+			f->z_r = 0;
+			f->z_i = 0;
+			while (++iterations < MAX_ITERATIONS && ft_module(f->z_r, f->z_i) < 4)
+			{
+				tmp_r = (f->z_r * f->z_r) - (f->z_i * f->z_i) + f->c_r;
+				f->z_i = 2 * f->z_r * f->z_i + f->c_i;
+				f->z_r = tmp_r;
+			}
+			mlx_put_pixel(f->show, f->screen_x, f->screen_y, 0);
+			f->screen_x++;
+		}
+		f->screen_y++;
+	}
 }
 
 //
-void	ft_mandelbrot(t_fractol *f)
+void	ft_mandelbox(t_fractol *f)
 {
 	(void)f;
 }
 
 //
-void	ft_mandelbox(t_fractol *f)
+void	ft_mandelbrot(t_fractol *f)
 {
 	int		iterations;
 	double	tmp_r;
@@ -58,7 +81,7 @@ void	ft_mandelbox(t_fractol *f)
 				f->z_i = 2 * f->z_r * f->z_i + f->c_i;
 				f->z_r = tmp_r;
 			}
-			mlx_put_pixel(f->img, f->screen_x, f->screen_y, 0);
+			mlx_put_pixel(f->show, f->screen_x, f->screen_y, 0);
 			f->screen_x++;
 		}
 		f->screen_y++;
