@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:2:51 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/01 13:26:04 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:55:28 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ static void	ft_set_complex_layout(t_fractol *f)
 {
 	if (f->fractal == JULIA)
 	{
-		f->min_real = -2.0;
-		f->max_real = 2.0;
-		f->min_imaginary = -2.0;
+		f->min_real = -1.7;
+		f->max_real = 1.7;
+		f->min_imaginary = -1.2;
 		f->max_imaginary = f->min_imaginary + (f->max_real - f->min_real) \
 							* HEIGHT / WIDTH;
 	}
@@ -80,9 +80,8 @@ static void	ft_set_complex_layout(t_fractol *f)
 	{
 		f->min_real = -2.0;
 		f->max_real = 1.0;
-		f->max_imaginary = -1.5;
-		f->min_imaginary = f->max_imaginary + (f->max_real - f->min_real) \
-							* HEIGHT / WIDTH;
+		f->max_imaginary = -1.0;
+		f->min_imaginary = 1.0;
 	}
 }
 

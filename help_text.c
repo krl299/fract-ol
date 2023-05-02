@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 19:28:38 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/04/26 12:05:54 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/02 11:12:51 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_help_txt(t_fractol *f)
 }
 
 //
-static void	ft_background(t_fractol *f, int width)
+static void	ft_background(t_fractol *f, int height)
 {
 	int	x;
 	int	y;
@@ -53,17 +53,10 @@ static void	ft_background(t_fractol *f, int width)
 	x = -1;
 	y = -1;
 	z = 0 << 24 | 0 << 16 | 0 << 8 | 255;
-	while (++y < width)
+	while (++y < height)
 	{
 		while (++x < W_CTRL)
 			mlx_put_pixel(f->ctrl, x, y, z);
-		x = -1;
-	}
-	y = -1;
-	while (++y < width)
-	{
-		while (++z < W_SHOW)
-			mlx_put_pixel(f->show, x, y, z);
 		x = -1;
 	}
 	mlx_image_to_window(f->mlx, f->ctrl, 0, 0);
@@ -75,7 +68,7 @@ void	ft_print_controls(t_fractol *f)
 	int	cont;
 
 	cont = 1;
-	ft_background(f, 9 * 30);
+	ft_background(f, HEIGHT);
 	mlx_put_string(f->mlx, "CONTROLS", 40, 20);
 	mlx_put_string(f->mlx, "________", 40, 21);
 	mlx_put_string(f->mlx, "Move:	Use arrows to move the view.", 40, (++cont) * 30);

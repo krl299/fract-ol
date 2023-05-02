@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:22:46 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/01 16:19:21 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/02 18:23:59 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # include <math.h>
 # include <stdio.h>
 // DIMENSIONS
-# define WIDTH 900
-# define HEIGHT 900
+# define WIDTH 1400 
+# define HEIGHT 700
 # define W_CTRL 500
-# define W_SHOW 250
+# define W_SHOW 900
 # define MAX_ITERATIONS 60
 //FRACTALS
 # define JULIA 1
@@ -53,10 +53,9 @@ typedef struct	s_fractol
 
 void	ft_help_txt(t_fractol *f);
 void	ft_init_fractol(t_fractol *f);
-//void	ft_set_color(t_fractol *f, int argc, char **argv);
 void	ft_start(t_fractol *f);
 void	ft_render(t_fractol *f);
-void	ft_color(t_fractol *f);
+int		ft_color(int color, int iterations);
 void	ft_hook(void *param);
 void	ft_key_hook(mlx_key_data_t keydata, void *param);
 void	ft_scroll_hook(double xdelta, double ydelta, void *param);

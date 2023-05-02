@@ -1,4 +1,4 @@
-SRCS		=	fractol.c	help_text.c	utils.c	parsers.c	initializers.c	hooks.c	render.c	complex.c
+SRCS		=	fractol.c	help_text.c	utils.c		initializers.c	hooks.c	render.c	complex.c
 
 OBJS		=	${SRCS:.c=.o}
 

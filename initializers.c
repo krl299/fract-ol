@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 11:29:30 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/04/27 18:47:23 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/02 19:20:47 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,16 @@ void	ft_init_fractol(t_fractol *f)
 //
 void	ft_start(t_fractol *f)
 {
-	f->mlx = mlx_init(WIDTH + W_CTRL + W_SHOW, HEIGHT, "Fract'ol", false);
+	f->mlx = mlx_init(W_CTRL + W_SHOW, HEIGHT, "Fract'ol", false);
 	if (!f->mlx)
 		ft_exit(f);
-	f->img = mlx_new_image(f->mlx, WIDTH, HEIGHT);
+	f->img = mlx_new_image(f->mlx, W_CTRL + W_SHOW, HEIGHT);
 	if (!f->img)
 		ft_exit(f);
 	f->ctrl = mlx_new_image(f->mlx, W_CTRL, HEIGHT);
 	if (!f->ctrl)
 		ft_exit(f);
-	f->show = mlx_new_image(f->mlx, W_SHOW, WIDTH);
+	f->show = mlx_new_image(f->mlx, W_SHOW, HEIGHT);
 	if (!f->show)
 		ft_exit(f);
 	ft_print_controls(f);

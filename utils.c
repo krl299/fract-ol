@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 12:18:10 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/04/27 17:45:18 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/02 19:10:23 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,20 +73,15 @@ void	ft_exit(t_fractol *f)
 {
 	if (!f)
 		exit(2);
-/*	if (f->palette)
-		free(f->palette);
 	if (f->img)
-		mlx_destroy_image(f->mlx, f->img);
-	if (f->win && f->mlx)
-		mlx_destroy_window(f->mlx, f->win);
+		mlx_delete_image(f->mlx, f->img);
+	if (f->ctrl && f->mlx)
+		mlx_delete_image(f->mlx, f->ctrl);
+	if (f->show&& f->mlx)
+		mlx_delete_image(f->mlx, f->show);
 	if (f->mlx)
-	{
-		mlx_loop_end(f->mlx);
-		mlx_destroy_display(f->mlx);
-		free(f->mlx);
-	}
-	*/
-	exit(2);
+		mlx_terminate(f->mlx);
+	exit(0);
 }
 
 double	ft_module(double r, double i)
