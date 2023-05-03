@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:22:46 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/03 16:15:50 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/03 17:07:06 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define HEIGHT 700
 # define W_CTRL 500
 # define W_SHOW 900
-# define MAX_ITERATIONS 1200
+# define MAX_ITERATIONS 100
 //FRACTALS
 # define JULIA 1
 # define MANDELBROT 2
