@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 19:28:38 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/02 11:12:51 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/03 12:53:32 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,6 @@ void	ft_print_controls(t_fractol *f)
 	mlx_put_string(f->mlx, "CONTROLS", 40, 20);
 	mlx_put_string(f->mlx, "________", 40, 21);
 	mlx_put_string(f->mlx, "Move:	Use arrows to move the view.", 40, (++cont) * 30);
-	mlx_put_string(f->mlx, "Zoom:	+/- to zoom in or out.", 40, ++cont * 30);
-	mlx_put_string(f->mlx, "		you can use mouse scroll too.", 40, ++cont * 30);
-	mlx_put_string(f->mlx, "Iteracts:", 40, ++cont * 30);
-	mlx_put_string(f->mlx, "* to icnrease the iterations.", 40, ++cont * 30);
-	mlx_put_string(f->mlx, "/ to decrease the iterations.", 40, ++cont * 30);
+	mlx_put_string(f->mlx, "Zoom:	mouse scroll to zoom in or out.", 40, ++cont * 30);
 	mlx_put_string(f->mlx, "Exit:	ESC", 40, ++cont * 30);
 }

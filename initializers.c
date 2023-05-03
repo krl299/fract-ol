@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 11:29:30 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/02 19:20:47 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/03 12:50:02 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,8 @@ void	ft_start(t_fractol *f)
 	ft_print_controls(f);
 	ft_render(f);
 	mlx_image_to_window(f->mlx, f->img, 0, 0);
-	mlx_loop_hook(f->mlx, ft_hook, &f);
-//	mlx_key_hook(f->mlx, ft_key_hook, &f);
-//	mlx_scroll_hook(f->mlx, ft_scroll_hook, &f);
+	mlx_key_hook(f->mlx, ft_key_hook, f);
+	mlx_scroll_hook(f->mlx, ft_scroll_hook, f);
 	mlx_loop(f->mlx);
-	mlx_terminate(f->mlx);
 }
 

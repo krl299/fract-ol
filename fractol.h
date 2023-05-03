@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:22:46 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/02 18:23:59 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/03 16:15:50 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define HEIGHT 700
 # define W_CTRL 500
 # define W_SHOW 900
-# define MAX_ITERATIONS 60
+# define MAX_ITERATIONS 1200
 //FRACTALS
 # define JULIA 1
 # define MANDELBROT 2
@@ -56,7 +56,6 @@ void	ft_init_fractol(t_fractol *f);
 void	ft_start(t_fractol *f);
 void	ft_render(t_fractol *f);
 int		ft_color(int color, int iterations);
-void	ft_hook(void *param);
 void	ft_key_hook(mlx_key_data_t keydata, void *param);
 void	ft_scroll_hook(double xdelta, double ydelta, void *param);
 void	ft_print_controls(t_fractol *f);
@@ -64,7 +63,7 @@ void	ft_print_controls(t_fractol *f);
 //Fractals
 void	ft_julia(t_fractol *f);
 void	ft_mandelbrot(t_fractol *f);
-void	ft_mandelbox(t_fractol *f);
+void	ft_tricorn(t_fractol *f);
 
 //MATHS
 void	ft_calc_complex_plane(t_fractol *f);
