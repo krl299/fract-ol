@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:50:54 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/03 12:49:53 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/04 11:43:58 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,27 +61,36 @@ void	ft_key_hook(mlx_key_data_t keydata, void *param)
 }
 
 //
-void	ft_scroll_hook(double xdelta, double ydelta, void *param)
+static void	ft_zoom(t_fractol *f, double zoom)
 {
 	double	zoom_r;
 	double	zoom_i;
 
+	zoom_r = f->min_real - f->max_real;
+	zoom_i = f->max_imaginary - f->min_imaginary;
+	printf("%f| %f\n", zoom_r, zoom_i);
+	f->max_real += (zoom_r - zoom * zoom_r) / 2;
+	f->min_real = f->max_real + zoom * zoom_r;
+	f->min_imaginary += (zoom_i - zoom * zoom_i) / 2;
+	f->max_imaginary = f->min_imaginary + zoom * zoom_i;
+
+}
+
+//
+void	ft_scroll_hook(double xdelta, double ydelta, void *param)
+{
 	(void)xdelta;
-	zoom_r = ((t_fractol *)param)->min_real - ((t_fractol *)param)->max_real;
-	zoom_i = ((t_fractol *)param)->max_imaginary - ((t_fractol *)param)->min_imaginary;
+	int mouse_x, mouse_y;
+	mlx_get_mouse_pos(((t_fractol *)param)->mlx, &mouse_x, &mouse_y);
+	printf("X:%d|Y:%d\n", mouse_x, mouse_y);
+	printf("%f\n", ydelta);
 	if (ydelta > 0)
 	{
-		((t_fractol *)param)->max_real += (zoom_r - 0.5 * zoom_r) / 2;
-		((t_fractol *)param)->min_real = ((t_fractol *)param)->max_real + 0.5 * zoom_r;
-		((t_fractol *)param)->min_imaginary += (zoom_i - 0.5 * zoom_i) / 2;
-		((t_fractol *)param)->max_imaginary = ((t_fractol *)param)->min_imaginary + 0.5 * zoom_i;
+		ft_zoom((t_fractol *)param, 0.5);
 	}
 	else if (ydelta < 0)
 	{
-		((t_fractol *)param)->max_real += (zoom_r - 2 * zoom_r) / 2;
-		((t_fractol *)param)->min_real = ((t_fractol *)param)->max_real + 2 * zoom_r;
-		((t_fractol *)param)->min_imaginary += (zoom_i - 2 * zoom_i) / 2;
-		((t_fractol *)param)->max_imaginary = ((t_fractol *)param)->min_imaginary + 2 * zoom_r;
+		ft_zoom((t_fractol *)param, 2);
 	}
 	ft_render((t_fractol *)param);
 }
