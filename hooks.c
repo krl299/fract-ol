@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:50:54 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/04 18:46:41 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:46:42 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,23 @@ static void	ft_arrows(mlx_key_data_t keydata, t_fractol *f)
 	{
 		f->max_real += move_r * 0.1;
 		f->min_real += move_r * 0.1;
-		ft_render(f);
 	}
 	else if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_RELEASE)
 	{
 		f->max_real -= move_r * 0.1;
 		f->min_real -= move_r * 0.1;
-		ft_render(f);
 	}
 	else if (keydata.key == MLX_KEY_DOWN && keydata.action == MLX_RELEASE)
-{
+	{
 		f->max_imaginary += move_i * 0.1;
 		f->min_imaginary += move_i * 0.1;
-		ft_render(f);
 	}
 	else if (keydata.key == MLX_KEY_UP && keydata.action == MLX_RELEASE)
-{
+	{
 		f->max_imaginary -= move_i * 0.1;
 		f->min_imaginary -= move_i * 0.1;
-		ft_render(f);
 	}
+	ft_render(f);
 }
 
 //
@@ -83,8 +80,7 @@ static void	ft_zoom(t_fractol *f, double zoom, int x, int y)
 {
 	double	zoom_r;
 	double	zoom_i;
-//	double	percent_x;
-//	double	percent_y;
+	double	percent;
 
 	zoom_r = f->min_real - f->max_real;
 	zoom_i = f->max_imaginary - f->min_imaginary;
@@ -92,8 +88,7 @@ static void	ft_zoom(t_fractol *f, double zoom, int x, int y)
 	f->min_real = f->max_real + zoom * zoom_r;
 	f->min_imaginary += (zoom_i - zoom * zoom_i) / 2;
 	f->max_imaginary = f->min_imaginary + zoom * zoom_i;
-	printf("%f\n", ft_percent(950, x));
-	double	percent = ft_percent(950, x);
+	percent = ft_percent(950, x);
 	if(x > 500)
 	{
 		if (x < 950)

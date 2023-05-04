@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:2:51 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/03 10:32:44 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:41:58 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,15 +97,9 @@ static void	ft_check_args(t_fractol *f, int argc, char **argv)
 	ft_set_complex_layout(f);
 }
 
-static void	ft_leaks(void)
-{
-	system("leaks -q fractol");
-}
-
 // 
 int	main(int argc, char *argv[])
 {
-	atexit(ft_leaks);
 	t_fractol	f;
 
 	if (argc < 2)
