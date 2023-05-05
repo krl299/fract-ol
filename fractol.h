@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:22:46 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/03 17:07:06 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/05 11:17:43 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ typedef struct	s_fractol
 {
 	char	fractal;
 	int		color;
-	int		color_pattern;
-	int		*palette;
 	double	min_real;
 	double	max_real;
 	double	min_imaginary;
@@ -49,6 +47,8 @@ typedef struct	s_fractol
 	mlx_image_t	*show;
 	int		screen_x;
 	int		screen_y;
+	int		mouse_x;
+	int		mouse_y;
 }	t_fractol;
 
 void	ft_help_txt(t_fractol *f);

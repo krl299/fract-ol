@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 11:29:30 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/03 12:50:02 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/05 11:57:24 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ft_init_fractol(t_fractol *f)
 {
 	f->fractal = -1;
 	f->color = 0;
-	f->color_pattern = 0;
-	f->palette = NULL;
 	f->min_real = 0;
 	f->max_real = 0;
 	f->min_imaginary = 0;
@@ -57,4 +55,3 @@ void	ft_start(t_fractol *f)
 	mlx_scroll_hook(f->mlx, ft_scroll_hook, f);
 	mlx_loop(f->mlx);
 }
-
