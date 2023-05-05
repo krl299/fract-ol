@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:2:51 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/04 19:41:58 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:34:02 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	ft_set_fractal(t_fractol *f, char **argv)
 	else if ((argv[1][0] == 'X' || argv[1][0] == 'x' || argv[1][0] == '3') \
 			&& argv[1][1] == '\0')
 	{
-		f->fractal = MANDELBOX;
+		f->fractal = TRICORN;
 	}
 	else
 		ft_help_txt(f);
@@ -68,14 +68,6 @@ static void	ft_set_complex_layout(t_fractol *f)
 		f->max_imaginary = f->min_imaginary + (f->max_real - f->min_real) \
 							* HEIGHT / WIDTH;
 	}
-	else if (f->fractal == MANDELBOX)
-	{
-		f->min_real = -4.0;
-		f->max_real = 4.0;
-		f->min_imaginary = -4.0;
-		f->max_imaginary = f->min_imaginary + (f->max_real - f->min_real) \
-							* HEIGHT / WIDTH;
-	}
 	else
 	{
 		f->min_real = -2.0;
@@ -89,9 +81,9 @@ static void	ft_set_complex_layout(t_fractol *f)
 static void	ft_check_args(t_fractol *f, int argc, char **argv)
 {
 	ft_set_fractal(f, argv);
-	if (f->fractal != JULIA && argc > 3)
+	if (f->fractal != JULIA && argc >= 3)
 		ft_help_txt(f);
-	else if (f->fractal == JULIA && argc > 5)
+	else if (f->fractal == JULIA && argc >= 5)
 		ft_help_txt(f);
 	ft_set_key_values(f, argc, argv);
 	ft_set_complex_layout(f);

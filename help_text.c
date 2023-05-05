@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 19:28:38 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/04 19:45:26 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:45:53 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,7 @@ static void	ft_fractal_options(void)
 	ft_printf("\tWhich fractal would you like to see?\n");
 	ft_printf("\tJulia ==> 'J'/'j'/'1'\n");
 	ft_printf("\tMandelbrot ==> 'M'/'m'/'2'\n");
-}
-
-static void	ft_color_options(void)
-{
-	ft_printf("\n+------------Available Colors--------------------+\n");
-	ft_printf("Pick a display color providing a hexadecimal code.\n");
-	ft_printf("The hex color code must be formatted as RRGGBB:\n");
-	ft_printf("\tWhite:\tFFFFFF\tBlack:\t000000\n");
-	ft_printf("\tRed:\tFF0000\tBlue:\t0000FF\n");
-	ft_printf("\tGreen:\t00FF00\tYellow:\tFFFF00\n");
+	ft_printf("\tTricorn ==> 'X'/'x'/'3'\n");
 }
 
 void	ft_help_txt(t_fractol *f)
@@ -37,8 +28,8 @@ void	ft_help_txt(t_fractol *f)
 	ft_printf("\n|                  FRACT'OL                      |\n");
 	ft_printf("\n+------------------------------------------------+\n");
 	ft_fractal_options();
-	ft_color_options();
-	ft_printf("\nExample ==> ./fractol <fractal> <keys> <color>");
+	ft_printf("\nExample ==> ./fractol <fractal> <JULIA_complex_number>");
+	ft_printf("\n./fractol J -1.0 0.3");
 	ft_printf("\n+------------------------------------------------+\n");
 	ft_exit(f);
 }
@@ -74,6 +65,10 @@ void	ft_print_controls(t_fractol *f)
 	mlx_put_string(f->mlx, "Move:	Use arrows to move the view.", \
 			40, (++cont) * 30);
 	mlx_put_string(f->mlx, "Zoom:	mouse scroll to zoom in or out.", \
+			40, ++cont * 30);
+	mlx_put_string(f->mlx, "     Here for centre zoom <==.", \
+			40, ++cont * 30);
+	mlx_put_string(f->mlx, "     There for mouse zoom ==>.", \
 			40, ++cont * 30);
 	mlx_put_string(f->mlx, "Color:	press C to shift colors.", \
 			40, ++cont * 30);

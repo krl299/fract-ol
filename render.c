@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:10:15 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/05 12:00:52 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:54:01 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_render(t_fractol *f)
 		ft_julia(f);
 	else if (f->fractal == MANDELBROT)
 		ft_mandelbrot(f);
-	else if (f->fractal == MANDELBOX)
+	else if (f->fractal == TRICORN)
 		ft_tricorn(f);
 	mlx_image_to_window(f->mlx, f->show, W_CTRL, 0);
 }

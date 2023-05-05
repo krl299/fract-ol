@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:22:46 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/05 11:17:43 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:53:21 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 //FRACTALS
 # define JULIA 1
 # define MANDELBROT 2
-# define MANDELBOX 3
+# define TRICORN 3
 
 typedef struct	s_fractol
 {
