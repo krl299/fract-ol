@@ -6,13 +6,13 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 11:29:30 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/05 11:57:24 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/06 17:02:38 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-//
+// initialice typedef t_fractol
 void	ft_init_fractol(t_fractol *f)
 {
 	f->fractal = -1;
@@ -33,7 +33,7 @@ void	ft_init_fractol(t_fractol *f)
 	f->show = NULL;
 }
 
-//
+// Start to create the images to use for render the fractals
 void	ft_start(t_fractol *f)
 {
 	f->mlx = mlx_init(W_CTRL + W_SHOW, HEIGHT, "Fract'ol", false);

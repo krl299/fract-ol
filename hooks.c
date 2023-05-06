@@ -6,13 +6,13 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:50:54 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/05 11:06:18 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/06 17:01:30 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-//
+// Do it while press arrows
 static void	ft_arrows(mlx_key_data_t keydata, t_fractol *f, \
 		double move_r, double move_i)
 {
@@ -39,7 +39,7 @@ static void	ft_arrows(mlx_key_data_t keydata, t_fractol *f, \
 	ft_render(f);
 }
 
-//
+// Do while press keys
 void	ft_key_hook(mlx_key_data_t keydata, void *param)
 {
 	double	move_r;

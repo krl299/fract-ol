@@ -6,13 +6,13 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:10:15 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/05 17:54:01 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/06 17:08:19 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-//
+// Render a fractal from input
 void	ft_render(t_fractol *f)
 {
 	if (f->fractal == JULIA)
@@ -24,7 +24,7 @@ void	ft_render(t_fractol *f)
 	mlx_image_to_window(f->mlx, f->show, W_CTRL, 0);
 }
 
-//
+// Show Julia fractal
 void	ft_julia(t_fractol *f)
 {
 	int		iter;
@@ -54,7 +54,7 @@ void	ft_julia(t_fractol *f)
 	}
 }
 
-//
+// Show tricorn fractal
 void	ft_tricorn(t_fractol *f)
 {
 	int		iter;
@@ -82,7 +82,7 @@ void	ft_tricorn(t_fractol *f)
 	}
 }
 
-//
+// Show mandelbrot fractal
 void	ft_mandelbrot(t_fractol *f)
 {
 	int		iter;
@@ -112,7 +112,7 @@ void	ft_mandelbrot(t_fractol *f)
 	}
 }
 
-//
+// Determine a color depending what is the iteration
 int	ft_color(int color, int iterations)
 {
 	int	color_kit[5];

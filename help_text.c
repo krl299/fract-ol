@@ -6,13 +6,13 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 19:28:38 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/05 18:45:53 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/06 16:47:46 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-//
+// Show what type fractal input are available
 static void	ft_fractal_options(void)
 {
 	ft_printf("\n+------------Available Fractals------------------+\n");
@@ -22,6 +22,7 @@ static void	ft_fractal_options(void)
 	ft_printf("\tTricorn ==> 'X'/'x'/'3'\n");
 }
 
+// Show a text in case of wrong input
 void	ft_help_txt(t_fractol *f)
 {
 	ft_printf("\n+------------------------------------------------+\n");
@@ -53,7 +54,7 @@ static void	ft_background(t_fractol *f, int height)
 	mlx_image_to_window(f->mlx, f->ctrl, 0, 0);
 }
 
-//
+// Show the instructions of how to use the program
 void	ft_print_controls(t_fractol *f)
 {
 	int	cont;

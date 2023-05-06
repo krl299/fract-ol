@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 12:18:10 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/03 10:40:11 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/06 17:08:37 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	ft_exit(t_fractol *f)
 	exit(0);
 }
 
+//
 double	ft_module(double r, double i)
 {
 	return ((r * r) + (i * i));

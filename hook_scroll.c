@@ -6,12 +6,12 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 11:03:47 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/05 11:28:25 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/06 17:00:23 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-//
+// return a
 double	ft_percent(int origen, int mouse_pos)
 {
 	double	percent;
@@ -24,7 +24,7 @@ double	ft_percent(int origen, int mouse_pos)
 	return (percent);
 }
 
-//
+// Calculate the changes to do while zoom to the mouse position
 static void	ft_zoom_mouse(t_fractol *f, double zoom_r, double zoom_i)
 {
 	double	percent;
@@ -53,7 +53,7 @@ static void	ft_zoom_mouse(t_fractol *f, double zoom_r, double zoom_i)
 	}
 }
 
-//
+// calculate the changes to do while zoom
 static void	ft_zoom(t_fractol *f, double zoom, double zoom_r, double zoom_i)
 {
 	f->max_real += (zoom_r - zoom * zoom_r) / 2;
@@ -64,7 +64,7 @@ static void	ft_zoom(t_fractol *f, double zoom, double zoom_r, double zoom_i)
 		ft_zoom_mouse(f, zoom_r, zoom_i);
 }
 
-//
+// 
 void	ft_scroll_hook(double xdelta, double ydelta, void *param)
 {
 	double	zoom_r;

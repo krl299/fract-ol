@@ -6,7 +6,7 @@
 /*   By: cmoran-l <cmoran-l@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:2:51 by cmoran-l          #+#    #+#             */
-/*   Updated: 2023/05/05 18:34:02 by cmoran-l         ###   ########.fr       */
+/*   Updated: 2023/05/06 16:45:38 by cmoran-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_set_key_values(t_fractol *f, int argc, char **argv)
 		ft_help_txt(f);
 }
 
-//
+// Set values for minimum and maximum of real and imaginary variables
 static void	ft_set_complex_layout(t_fractol *f)
 {
 	if (f->fractal == JULIA)
